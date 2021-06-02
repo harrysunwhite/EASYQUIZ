@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Đăng ký</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    
+ 
+    <link rel="stylesheet" href="css/signup.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+    <script src="js/angular-route.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+
+
+<body ng-app="myapp">
+    <div class="container register">
+        <div class="row">
+            <div class="col-md-3 register-left">
+                <img data-toggle="modal" data-target="#exampleModal" src="https://image.ibb.co/n7oTvU/logo_white.png" alt=""/>
+                <h3>Chào mừng bạn</h3>
+                <p>Chỉ cần vài bước nữa là bạn có thể tham gia lớp học</p>
+                <a href="#!1" data-toggle="modal" data-target="#loginModal" class="btn btn-light text-dark">Đăng nhập</a>
+            </div>
+            <div class="col-md-9 register-right">
+                <div class="col-12">
+                    <ul class="nav nav-tabs nav-justified" style="width:fit-content" id="myTab" role="tablist">
+                        <li class="nav-item">
+                            <a class="nav-link active" style="width:150px" id="home-tab" data-toggle="tab" href="#!home" role="tab" aria-controls="home" aria-selected="true">Đăng ký</a>
+                        </li>
+                        <li class="nav-item" >
+                            <a class="nav-link" style="width:200px" id="profile-tab" data-toggle="tab" href="#!profile" role="tab" aria-controls="profile" aria-selected="false">Quên mật khẩu</a>
+                        </li>
+                    </ul>
+                </div>
+              
+                
+                <div class="tab-content" id="myTabContent">
+                    <form name="frmdk" class="tab-pane fade show active" id="!home" role="tabpanel" aria-labelledby="home-tab">
+                        <h3 class="register-heading">Đăng ký thành viên</h3>
+                        <div  ng-controller="signup" class="row register-form">
+                            <div class="modal fade"  id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                <div class="modal-dialog modal-lg" role="document">
+                                <div class="modal-content m-auto" >
+                                    <div class="modal-header">
+                                 
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                    </div>
+                                    <div class="modal-body">
+                                        <table class="table table-striped table-bordered text-left">
+                                            <thead class="bg-dark text-white">
+                                              <tr>
+                                                <th scope="col">#</th>
+                                                <th scope="col">UserName</th>
+                                                <th scope="col">Mật Khẩu</th>
+                                                <th scope="col">Họ Tên</th>
+                                                <th scope="col">Email</th>
+                                                <th scope="col">Phái</th>
+                                                <th scope="col">Học phí</th>
+                                              </tr>
+                                            </thead>
+                                            <tbody id="myTable">
+                                              <tr ng-repeat="sv in students" >
+                                                <th scope="row">{{$index+1}}</th>
+                                                <td>{{sv.username}}</td>
+                                                <td>{{sv.password}}</td>
+                                                <td>{{sv.fullname}}</td>
+                                                <td>{{sv.email}}</td>
+                                                <td>{{sv.gender}}</td>
+                                                
+                                                <td>{{sv.schoolfee}}</td>
+                                              
+                                              </tr>
+                                              
+                                            </tbody>
+                                          </table>
+                                    </div>
+                                    
+                                </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <input type="text" name="un" ng-model="newstudent.username" class="form-control" placeholder="Nhập tên tài khoản *"  required /> 
+                                    <span class="text-danger" ng-if="isexist">Tên Tài khoản đã tồn tại</span>
+                         
+                                </div>
+                               
+                                <div class="form-group">
+                                    <input type="email" ng-model="newstudent.email" class="form-control" placeholder="Nhập Email *" value="" required/>
+                                </div>
+                                
+                                <div class="form-group">
+                                    <input type="password" ng-model ="newstudent.password" class="form-control" placeholder="Mật khẩu *" value="" required/>
+                                    <span class="text-danger m-2" ng-if="!isSame">Mật khẩu  không trùng khớp</span>
+                                </div>
+                                
+                                <div class="form-group">
+                                    <input type="password" ng-model ="repass" class="form-control"  placeholder="Nhập lại mật khẩu *" value="" required/>
+                                </div>
+                            
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <input type="text" ng-model="newstudent.fullname" class="form-control" placeholder="Họ và tên *" value="" required />
+                                </div>
+                                <div class="form-group">
+                                    <input type="text" ng-model="newstudent.birthday"   class="form-control" placeholder="Nhập ngày tháng năm sinh *" required  />
+                                </div>
+                                <div class="form-group">
+                                    <select ng-model="newstudent.schoolfee" class="form-control" required>
+                                        <option value="" selected disabled>Chọn ngành học</option>
+                                        <option value="1500000">Công nghệ thông tin</option>
+                                        <option value="2000000">Du lịch</option>
+                                        <option value="2500000">Cơ khí</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <div class="maxl">
+                                        <label class="radio inline"> 
+                                            <input type="radio" ng-model="newstudent.gender" value="True" checked>
+                                            <span> Nam </span> 
+                                        </label>
+                                        <label class="radio inline"> 
+                                            <input type="radio" ng-model="newstudent.gender" value="False">
+                                            <span>Nữ </span> 
+                                        </label>
+                                    </div>
+                                </div>
+                              <div>
+                               
+                              </div>
+                                <input type="submit" ng-click="Dangky()"  class="btnRegister"  value="Đăng ký"/>
+                            </div>
+                        </div>
+                    </form>
+                    <form class="tab-pane fade show" id="!profile" role="tabpanel" aria-labelledby="profile-tab">
+                        <h3 class="register-heading">Cung cấp thông tin để lấy lại mật khẩu</h3>
+                        <div ng-controller="forgot" class="row register-form">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <input type="text" ng-model="forgotusername" class="form-control" placeholder="Nhập tên tài khoản *" required />
+                                </div>
+                                
+                                <div class="form-group">
+                                    <input type="email" ng-model="forgotemail" class="form-control" placeholder="Nhập Email *" value="" required/>
+                                </div>
+                                
+                               
+                               
+                            </div>
+                            <div class="col-md-6">
+                                
+                               
+                               
+                                <input type="submit" ng-click="forgot()" class="btnRegister"  value="Gửi yêu cầu"/>
+                            </div>
+                        </div>
+                    </form>
+                  
+                </div>
+       
+            </div>
+        </div>
+
+    </div>
+  </body>
+
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+</html>

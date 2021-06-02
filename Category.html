@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Category</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    
+    <link rel="stylesheet" href="./css/stylenew.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+    <script src="js/angular-route.js"></script>
+    <link rel="stylesheet" href="css/footerstyle.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body>
+
+           
+              <div class="container">
+                  <div class="row">
+                    <article class="col-sm-9 p-2">
+                        <div class="container" style="min-height: 90%;">
+                          <div class="row">
+                            <div ng-if="!islogin()" ng-repeat="mh in monhoc|orderBy:'Name'|limitTo:6:start" class="col-md-6 col-12 mb-2">
+                              <div class="product-grid6 mr-2 border border border-info">
+                                <div class="product-image6">
+                                    <a href="#" ng-click="thongbao()">
+                                        <img class="pic-1" src="images/{{mh.Logo}}">
+                                    </a>
+                                </div>
+                                <div class="product-content bg-info pb-1">
+                                    <p class="title" style="font-size:small"><a class="text-white" href="#" ng-click="thongbao()">{{mh.Name}}</a></p>
+                                   
+                                </div>
+                               
+                            </div>
+                            </div>
+           
+                            <div ng-if="islogin()" ng-repeat="mh in monhoc|orderBy:'Name'|limitTo:6:start" class="col-md-6 col-12 mb-2">
+                              <div class="product-grid6 mr-2 border border border-info">
+                                <div class="product-image6">
+                                    <a  href="#!tracnghiem/{{mh.Id}}/{{mh.Name}}">
+                                        <img class="pic-1" src="images/{{mh.Logo}}">
+                                    </a>
+                                </div>
+                                <div class="product-content bg-info pb-1">
+                                    <p class="title" style="font-size:small"><a class="text-white" href="#!tracnghiem/{{mh.Id}}/{{mh.Name}}">{{mh.Name}}</a></p>
+                                   
+                                </div>
+                               
+                            </div>
+                            </div>
+           
+                          
+                       
+                        
+                         
+                          
+                          
+                          
+                         </div>
+                        </div>
+                        <div class="text-center pt-3">
+                          
+                         
+                          <ul class="pagination justify-content-center">
+                            <li class="page-item " >
+                              <button ng-click="truoc()" ng-show ="start !=0" class="page-link">Trang trước</button>
+                            </li>
+                            
+                            <li class="page-item">
+                              <button ng-click="next()"  ng-show ="start<monhoc.length-6" class="page-link">Trang sau</button>
+                            </li>
+                          </ul>
+                      
+                      
+                    </div>
+                        </article>
+                        <aside class="col-sm-3">
+                          <div class="card mt-1 ml-n2 mr-n2 mb-2">
+                              <div class="card-header text-white font-weight-bold text-uppercase"><i class="fa fa-list" aria-hidden="true"></i> Danh mục môn học</div>
+                              <div class="card-body p-0" >
+                                <div class="list-group " style="font-size: small;">
+                                  <a ng-if="!islogin()" ng-repeat="mh in monhoc|orderBy:'Name'" href="#" ng-click="thongbao()" class="list-group-item list-group-item-action">{{mh.Name|uppercase}}</a>
+                                  <a ng-if="islogin()" ng-repeat="mh in monhoc|orderBy:'Name'" href="#!tracnghiem/{{mh.Id}}/{{mh.Name}}" class="list-group-item list-group-item-action">{{mh.Name|uppercase}}</a>
+                                 
+                                 
+                                </div>
+                               
+                              </div>
+                            </div>
+                        </aside>
+                  </div>
+               
+            </div>
+            
+          
+</body>
+
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+</html>

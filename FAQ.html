@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FAQ</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+ 
+    <link rel="stylesheet" href="css/FAQstyle.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body>
+    <div class="container-fluid bg-gray" id="accordion-style-1">
+        <div class="container">
+            
+                <div >
+                    <div class="col-12">
+                        <h1 class="text-green mb-4 text-center">Những câu hỏi thường gặp</h1>
+                    </div>
+
+                    <div class="col-12 p-4">
+                        <div id="custom-search-input">
+                            <div class="input-group">
+                                <input type="text" class="search-query form-control" placeholder="Tìm kiếm trước khi đặt câu hỏi" />
+                                <span class="input-group-btn">
+                                    <button type="button" disabled>
+                                        <span class="fa fa-search"></span>
+                                    </button>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12 mx-auto p-2 text-left">
+                        <div class="accordion" id="accordionExample">
+                            <div class="card">
+                                <div class="card-header" id="headingOne">
+                                    <h5 class="mb-0">
+                                <button class="btn btn-link btn-block text-left" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                    <i class="fa fa-question-circle-o" aria-hidden="true"></i> <i class="fa fa-angle-double-right mr-3"></i>Tôi muốn tham gia khoá học thì phải làm thế nào?
+                                </button>
+                              </h5>
+                                </div>
+    
+                                <div id="collapseOne" class="collapse fade" aria-labelledby="headingOne" data-parent="#accordionExample">
+                                    <div class="card-body te">
+                                       Nếu muốn tham gia khoá học bạn vui lòng chọn vào mục đăng ký cung cấp thông tin cần thiết và bắt đầu tham gia khoá học.
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card">
+                                <div class="card-header" id="headingTwo">
+                                    <h5 class="mb-0">
+                                <button class="btn btn-link collapsed btn-block text-left" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                                    <i class="fa fa-question-circle-o" aria-hidden="true"></i> </i><i class="fa fa-angle-double-right mr-3"></i>Web site có khoá học về lập trình không?
+                                </button>
+                              </h5>
+                                </div>
+                                <div id="collapseTwo" class="collapse fade" aria-labelledby="headingTwo" data-parent="#accordionExample">
+                                    <div class="card-body">
+                                       Website có khối ngành chuyên về công nghệ thông tin với nhiều bộ môn để bạn lựa chon. Vui long vào mục giới thiệu để xem thêm chi tiết.
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card">
+                                <div class="card-header" id="headingThree">
+                                    <h5 class="mb-0">
+                                <button class="btn btn-link collapsed btn-block text-left" type="button" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                                    <i class="fa fa-question-circle-o" aria-hidden="true"></i> <i class="fa fa-angle-double-right mr-3"></i> Tôi quên mật khẩu đăng nhập?
+                                </button>
+                              </h5>
+                                </div>
+                                <div id="collapseThree" class="collapse fade" aria-labelledby="headingThree" data-parent="#accordionExample">
+                                    <div class="card-body">
+                                       Vui lòng truy cập vào mục quên mật khẩu, cung câp những thông tin xác thực. Hệ thống sẽ cấp lại mật khẩu cho bạn.
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card">
+                                <div class="card-header" id="headingFour">
+                                    <h5 class="mb-0">
+                                <button class="btn btn-link collapsed btn-block text-left" type="button" data-toggle="collapse" data-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+                                    <i class="fa fa-question-circle-o" aria-hidden="true"></i> <i class="fa fa-angle-double-right mr-3"></i>Tôi có thể liên lạc với quản trị viên bằng cách nào
+                                </button>
+                              </h5>
+                                </div>
+                                <div id="collapseFour" class="collapse fade" aria-labelledby="headingFour" data-parent="#accordionExample">
+                                    <div class="card-body">
+                                      Thông tin liên lạc của chúng tôi có trong mục giới thiệu của website. Với địa chỉ cụ thể, Email và Số điện thoại liên lạc
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>	
+                </div>
+    
+        </div>
+    </div>
+    
+</body>
+
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+</html>
